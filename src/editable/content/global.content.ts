@@ -3,52 +3,52 @@ import { slot4BrandConfig } from '@/editable/theme/brand.config'
 export const globalContent = {
   site: {
     name: slot4BrandConfig.siteName,
-    tagline: slot4BrandConfig.tagline || 'Independent reading platform',
+    tagline: slot4BrandConfig.tagline || 'The Directory For Every Need.',
     domain: slot4BrandConfig.domain,
     baseUrl: slot4BrandConfig.baseUrl,
   },
   nav: {
-    tagline: 'Independent reading platform',
+    tagline: 'The Directory For Every Need.',
     primaryLinks: [
-      { label: 'Articles', href: '/articles' },
-      { label: 'Visuals', href: '/image-sharing' },
-      { label: 'Listings', href: '/listings' },
+      { label: 'Home', href: '/' },
+      { label: 'About', href: '/about' },
       { label: 'Contact', href: '/contact' },
     ],
     actions: {
-      primary: { label: 'Start exploring', href: '/' },
-      secondary: { label: 'Submit', href: '/contact' },
+      primary: { label: 'Add Your Listing', href: '/create' },
+      secondary: { label: 'Sign In', href: '/login' },
     },
   },
   footer: {
-    tagline: 'Stories, resources, and discoverable posts',
-    description: 'A connected publishing surface for articles, visuals, listings, profiles, bookmarks, and downloadable resources.',
+    tagline: 'The Directory For Every Need.',
+    description: 'Explore thousands of listings across various categories. Post your listings for free and connect with the right audience today.',
     columns: [
       {
         title: 'Explore',
         links: [
           { label: 'Articles', href: '/articles' },
-          { label: 'Listings', href: '/listings' },
-          { label: 'Images', href: '/image-sharing' },
-          { label: 'PDF Library', href: '/pdf' },
+          { label: 'Resources', href: '/pdf' },
+          { label: 'About Us', href: '/about' },
         ],
       },
       {
-        title: 'Site',
+        title: 'Company',
         links: [
-          { label: 'About', href: '/about' },
+          { label: 'About Us', href: '/about' },
           { label: 'Contact', href: '/contact' },
+          { label: 'Sign In', href: '/login' },
+          { label: 'Add Listing', href: '/create' },
         ],
       },
     ],
-    bottomNote: 'Built for clean discovery and connected publishing.',
+    bottomNote: 'Free business listings. Connect with the right audience.',
   },
   commonLabels: {
-    readMore: 'Read more',
-    viewAll: 'View all',
+    readMore: 'View Details',
+    viewAll: 'View All',
     explore: 'Explore',
     latest: 'Latest',
     related: 'Related',
-    published: 'Published',
+    published: 'Posted',
   },
 } as const
