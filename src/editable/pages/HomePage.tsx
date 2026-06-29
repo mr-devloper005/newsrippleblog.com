@@ -5,7 +5,7 @@ import { buildPageMetadata } from '@/lib/seo'
 import { fetchHomeTaskFeed, fetchHomeTimeSections, type HomeTimeSection } from '@/lib/task-data'
 import { pagesContent } from '@/editable/content/pages.content'
 import type { SitePost } from '@/lib/site-connector'
-import { EditableHomeCta, EditableHomeHero, EditableMagazineSplit, EditableStoryRail, EditableTimeCollections } from '@/editable/sections/HomeSections'
+import { EditableHomeCta, EditableHomeHero, EditableMagazineSplit, EditableTimeCollections } from '@/editable/sections/HomeSections'
 import { EditableSiteShell } from '@/editable/shell/EditableSiteShell'
 import { Ads } from '@/lib/ads'
 export const revalidate = 300
@@ -53,17 +53,26 @@ export default async function HomePage() {
         }}
       />
       <EditableHomeHero primaryTask={primaryTask} primaryRoute={primaryRoute} posts={primaryPosts} timeSections={timeSections} />
-      <div className="mx-auto max-w-6xl px-4 py-6">
-  <Ads slot="header" showLabel eager className="mx-auto w-full" />
-</div>
 
-      <EditableStoryRail primaryTask={primaryTask} primaryRoute={primaryRoute} posts={primaryPosts} timeSections={timeSections} />
-      <EditableMagazineSplit primaryTask={primaryTask} primaryRoute={primaryRoute} posts={primaryPosts} timeSections={timeSections} />
+      {/* Main content + sidebar layout */}
+      <div className="mx-auto max-w-[var(--editable-container)] px-4 sm:px-6 lg:px-8">
+        <div className="flex gap-8 py-10 lg:items-start">
+          {/* Main content */}
+          <div className="min-w-0 flex-1">
+            <EditableMagazineSplit primaryTask={primaryTask} primaryRoute={primaryRoute} posts={primaryPosts} timeSections={timeSections} />
+            <EditableTimeCollections primaryTask={primaryTask} primaryRoute={primaryRoute} posts={primaryPosts} timeSections={timeSections} />
+          </div>
 
-      <EditableTimeCollections primaryTask={primaryTask} primaryRoute={primaryRoute} posts={primaryPosts} timeSections={timeSections} />
-      <div className="mx-auto max-w-6xl px-4 py-6">
-  <Ads slot="sidebar" showLabel eager className="mx-auto w-full" />
-</div>
+          {/* Sidebar ads */}
+          <aside className="hidden w-[300px] shrink-0 lg:block">
+            <div className="sticky top-24 flex flex-col gap-6">
+             
+              <Ads slot="sidebar" showLabel className="w-full" />
+            </div>
+          </aside>
+        </div>
+      </div>
+
       <EditableHomeCta />
       </main>
     </EditableSiteShell>
